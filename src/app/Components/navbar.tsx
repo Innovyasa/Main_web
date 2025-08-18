@@ -29,9 +29,9 @@ const Navbar: React.FC = () => {
               <Image
                 src="/logo_trim-removebg-preview.png"
                 alt="Innovyasa Logo"
-                width={280} // Default width
-                height={72} // Default height
-                className="w-[180px] h-[50px] sm:w-[220px] sm:h-[60px] md:w-[240px] md:h-[68px]"
+                width={200} // Default width
+                height={60} // Default height
+                className="w-40 h-10 sm:w-40 sm:h-10" 
               />
             </Link>
           </div>
@@ -73,11 +73,11 @@ const Navbar: React.FC = () => {
                 key={link.href}
                 href={link.href}
                 onClick={() => handleLinkClick(link.href)}
-                className={`block mt-4 md:text-[26px] md:mt-15 md:inline-block md:text-white relative group ${
+                className={`block mt-4 md:text-lg md:mt-15 md:inline-block md:text-white relative group ${
                   activeLink === link.href ? 'text-orange-400' : ''
                 }`}
               >
-                <p className="text-[24px] pb-2 pr-2 pl-2 group-hover:rounded-t-lg transition-all">
+                <p className="text-xl pb-2 pr-2 pl-2 group-hover:rounded-t-lg transition-all">
                   {link.label}
                 </p>
                 <span
@@ -95,7 +95,7 @@ const Navbar: React.FC = () => {
             <div className="ml-auto">
               <Link
                 href="/signin"
-                className="bg-[#FF7D03] md:mt-7 text-white text-center block text-[25px] px-5 py-2 rounded hover:bg-orange-500 transition-all"
+                className="bg-[#FF7D03] md:mt-7 text-white text-center block text-xl px-4 rounded hover:bg-orange-500 transition-all"
               >
                 Sign In
               </Link>
