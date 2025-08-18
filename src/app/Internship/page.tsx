@@ -1,6 +1,4 @@
 import React from "react";
-import Navbar from "../Components/navbar";
-import Footer from "../Components/footer";
 import Visual from "../Components/internvisual";
 import InternCard from "../Components/interncard"
 import Image from "next/image";
@@ -15,14 +13,8 @@ const images = [
 
 const Internship: React.FC = () => {
   return (
-    <div>
-      {/* Navbar */}
-      <Navbar />
-
-      {/* Main Content */}
-      <main
-        className="min-h-screen flex justify-start flex-col"  
-      >
+    // The <main> tag is now in layout.tsx, so we can use a <div> or fragment here.
+    <div className="flex justify-start flex-col">
         <div className="container mx-auto text-center bg-blue-300 w-full h-auto">
           <p className="text-lg text-black font-bold p-4">
             We Shape Careers and Empower the <br />
@@ -72,7 +64,7 @@ const Internship: React.FC = () => {
                 'Build a strong network and enhance your career prospects',
               ].map((text, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <img src="/interns/interns1/arrowbullet.svg" alt="bullet" className="w-4 h-4 mt-1" />
+                  <Image src="/interns/interns1/arrowbullet.svg" alt="bullet" width={16} height={16} className="w-4 h-4 mt-1" />
                   <span>{text}</span>
                 </li>
               ))}
@@ -160,15 +152,15 @@ const Internship: React.FC = () => {
                 
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
-                    <img src="/interns/interns3/bullet1.svg" alt="Bullet" className="w-4 h-4 mt-1"/>
+                    <Image src="/interns/interns3/bullet1.svg" alt="Bullet" width={16} height={16} className="w-4 h-4 mt-1"/>
                     <span className="text-sm">Students & Freshers – Gain practical experience before entering the job market</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <img src="/interns/interns3/bullet2.svg" alt="Bullet" className="w-4 h-4 mt-1"/>
+                    <Image src="/interns/interns3/bullet2.svg" alt="Bullet" width={16} height={16} className="w-4 h-4 mt-1"/>
                     <span className="text-sm">Career Switchers – Upskill in the latest technologies and switch to your dream career.</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <img src="/interns/interns3/bullet3.svg" alt="Bullet" className="w-4 h-4 mt-1"/>
+                    <Image src="/interns/interns3/bullet3.svg" alt="Bullet" width={16} height={16} className="w-4 h-4 mt-1"/>
                     <span className="text-sm">Tech Enthusiasts – Learn, build, and showcase your projects to top recruiters.</span>
                   </li>                                    
                 </ul><br />
@@ -217,12 +209,6 @@ const Internship: React.FC = () => {
                 <InternCard />
               </div>
         </div>
-
-
-      </main>
-
-      {/* Footer */}
-      <Footer />
     </div>
   );
 };
