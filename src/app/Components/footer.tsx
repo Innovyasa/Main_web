@@ -6,7 +6,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#252144] text-white py-10 px-5">
+    <footer className="bg-[#113045] text-white py-10 px-5">
       <div className="container mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-8 lg:space-y-0">
         {/* Logo and Description */}
         <div className="lg:w-1/3">
@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
             <input
               type="email"
               placeholder="Enter your email address"
-              className="w-full p-2 text-black rounded pr-20" // Add padding-right to make space for the button
+              className="w-full p-2 text-white border border-white rounded pr-20" // Add padding-right to make space for the button
             />
             <button
               type="submit"
