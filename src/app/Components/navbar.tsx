@@ -21,8 +21,8 @@ const Navbar: React.FC = () => {
   return (
     <div>
       {/* Main Navigation Section */}
-      <nav className="bg-[#113045] p-4 h-auto">
-        <div className="container mx-auto flex justify-between items-center h-[70px]">
+      <nav className="bg-[#113045] p-3 h-auto">
+        <div className="container mx-auto flex justify-between items-center h-[60px]">
           {/* Logo */}
           <div className="text-white text-xl font-bold md:mt-0">
             <Link href="/">
@@ -73,7 +73,7 @@ const Navbar: React.FC = () => {
                 key={link.href}
                 href={link.href}
                 onClick={() => handleLinkClick(link.href)}
-                className={`block mt-4 md:text-lg md:mt-15 md:inline-block md:text-white relative group ${
+                className={`block mt-4 md:text-lg md:mt-10 md:inline-block md:text-white relative group ${
                   activeLink === link.href ? 'text-orange-400' : ''
                 }`}
               >
