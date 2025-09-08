@@ -118,7 +118,7 @@ const VoiceOfSuccess: React.FC = () => {
   const lastRowStartIndex = totalItems - (totalItems % numColumns || numColumns);
 
   return (
-    <section className="bg-gray-100 py-20 px-4 relative overflow-hidden">
+    <section className="bg-gray-100 py-6 px-4 relative overflow-hidden">
         <div className="absolute w-40 h-40 border-4 border-[#FF7D03] rounded-full -top-10 -left-10 opacity-70 animate-pulse-border" style={{ animationDelay: '0s' }}></div>
         <div className="absolute w-56 h-56 border-4 border-[#FF7D03] rounded-full -bottom-16 -right-16 opacity-50 animate-pulse-border" style={{ animationDelay: '1s' }}></div>
         <div className="absolute w-28 h-28 border-4 border-[#FF7D03] rounded-full top-1/3 left-1/4 opacity-40 animate-pulse-border" style={{ animationDelay: '2s' }}></div>
@@ -128,7 +128,7 @@ const VoiceOfSuccess: React.FC = () => {
       <div className="container mx-auto max-w-6xl text-center relative z-10">
         <h2 className="text-4xl font-bold text-[#113045] mb-6">Voice of Success</h2>
         
-        <div className="relative bg-[#113044] rounded-2xl p-8 md:p-12 mt-12 min-h-[500px] overflow-hidden">
+        <div className="relative bg-[#113044] rounded-2xl p-8 md:p-12 min-h-[500px] overflow-hidden">
             
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-16 gap-x-4 py-8 relative z-10">
             {testimonials.map((person, index) => {
