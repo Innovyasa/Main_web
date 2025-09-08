@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-// The 'react-responsive-carousel' import has been removed.
 
 const heroSlides = [
   {
@@ -61,49 +60,48 @@ const DiamondColumn = ({ diamonds, rightOffset }: { diamonds: any[]; rightOffset
 const randomSelect = (arr: any[]) => arr.filter(() => Math.random() > 0.5);
 
 const HeroSection: React.FC = () => {
-  // --- MANUAL CAROUSEL LOGIC ---
   const [currentSlide, setCurrentSlide] = useState(0);
   const [leftDiamonds, setLeftDiamonds] = useState<typeof columnDiamonds>([]);
   const [middleDiamonds, setMiddleDiamonds] = useState<typeof columnDiamonds>([]);
 
-  // Function to change diamonds when the slide changes
   const handleSlideChange = (index: number) => {
     setCurrentSlide(index);
     setLeftDiamonds(randomSelect(columnDiamonds));
     setMiddleDiamonds(randomSelect(columnDiamonds));
   };
 
-  // Auto-play timer
   useEffect(() => {
     const timer = setInterval(() => {
       const newIndex = (currentSlide + 1) % heroSlides.length;
       handleSlideChange(newIndex);
     }, 4300);
-    return () => clearInterval(timer); // Cleanup timer on component unmount
+    return () => clearInterval(timer);
   }, [currentSlide]);
-  
-  // Initial diamond generation
+
   useEffect(() => {
     setLeftDiamonds(randomSelect(columnDiamonds));
     setMiddleDiamonds(randomSelect(columnDiamonds));
   }, []);
 
-
   return (
     <section className="relative w-full overflow-hidden flex items-center justify-center bg-gradient-to-br from-[#113045] to-[#093449]">
-      {/* Diamond background remains the same */}
-      <DiamondColumn diamonds={leftDiamonds} rightOffset={30} />
-      <DiamondColumn diamonds={middleDiamonds} rightOffset={15} />
+      {/* --- RESPONSIVE DIAMONDS --- */}
+      {/* Hide the two randomized columns on smaller screens to reduce clutter */}
+      <div className="hidden md:block">
+        <DiamondColumn diamonds={leftDiamonds} rightOffset={30} />
+        <DiamondColumn diamonds={middleDiamonds} rightOffset={15} />
+      </div>
       <DiamondColumn diamonds={columnDiamonds} rightOffset={0} />
 
-      {/* --- MANUAL CAROUSEL CONTAINER --- */}
-      {/* The height of this container is explicitly controlled by the content inside. */}
-      <div className="w-full max-w-[1100px] z-10 relative h-[400px] md:h-[520px]">
+      {/* --- RESPONSIVE CAROUSEL CONTAINER --- */}
+      {/* The container is now taller on mobile to accommodate the stacked layout */}
+      <div className="w-full max-w-[1100px] z-10 relative h-[600px] md:h-[520px]">
         {heroSlides.map((slide, idx) => (
-          // We use opacity and z-index to create a fading transition between slides.
           <div
             key={idx}
-            className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+            // --- RESPONSIVE SLIDE LAYOUT ---
+            // On mobile, it's a flex column. On medium screens and up, it becomes a simple block for absolute positioning to take over.
+            className="absolute inset-0 flex flex-col md:block transition-opacity duration-1000 ease-in-out"
             style={{
               opacity: currentSlide === idx ? 1 : 0,
               zIndex: currentSlide === idx ? 10 : 0,
@@ -111,20 +109,20 @@ const HeroSection: React.FC = () => {
           >
             {/* Left Section (Text) */}
             <div
-              className="absolute top-1/2 left-0 w-1/2 -translate-y-1/2 pr-8 text-white text-left"
+              className="relative w-full text-center mt-14 md:mt-4 px-4 pt-12 md:absolute md:top-1/2 md:left-0 md:w-1/2 md:-translate-y-1/2 md:pr-8 md:text-left md:pt-0"
               style={{ zIndex: 20 }}
             >
-              <h1 className="text-[2.7rem] font-extrabold mb-4 leading-tight">
+              <h1 className="text-3xl font-extrabold mb-4 leading-tight text-white md:text-[2.7rem]">
                 {slide.heading}
               </h1>
               {slide.subtext && (
-                <p className="text-base mb-5">{slide.subtext}</p>
+                <p className="text-base mb-5 text-white">{slide.subtext}</p>
               )}
             </div>
 
             {/* Right Section (Image) */}
             <div
-              className="absolute bottom-0 right-0 w-1/2 h-full flex justify-center items-end"
+              className="relative w-full h-full flex justify-center items-end md:absolute md:bottom-0 md:right-0 md:w-1/2"
               style={{ zIndex: 10 }}
             >
               {slide.images.map((img, i) => (
@@ -132,7 +130,7 @@ const HeroSection: React.FC = () => {
                   key={i}
                   src={img}
                   alt="Section visual"
-                  className="w-auto object-contain h-full"
+                  className="w-auto object-contain h-full max-h-[300px] md:max-h-full" // Constrain height on mobile
                 />
               ))}
             </div>

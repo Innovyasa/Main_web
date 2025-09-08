@@ -10,19 +10,19 @@ const features = [
     titleFirstWord: 'Expert-Led',
     titleRest: 'Learning',
     description: 'Learn from top industry professionals and domain experts who bring real-world knowledge straight to you.',
-    imageUrl: '/Home/why_choose/why1.jpeg',
+    imageUrl: '/courses/why_choose/why1.jpeg',
   },
   {
     titleFirstWord: 'Flexible',
     titleRest: 'Learning Options',
     description: 'Choose between self-paced or live interactive sessions—learn anytime, anywhere at your convenience.',
-    imageUrl: '/Home/why_choose/why2.png',
+    imageUrl: '/courses/why_choose/why2.png',
   },
   {
     titleFirstWord: 'Community',
     titleRest: '& Networking',
     description: 'Join a thriving community of learners, professionals, and mentors to collaborate, share insights, and grow together.',
-    imageUrl: '/Home/why_choose/why3.png',
+    imageUrl: '/courses/why_choose/why3.png',
   },
 ];
 
