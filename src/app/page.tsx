@@ -2,6 +2,7 @@ import React from "react";
 import HeroSection from "./Components/home/HeroSection";
 import WhyInnovyasa from "./Components/home/WhyInnovyasa";
 import VoiceOfSuccess from "./Components/home/VoiceOfSuccess";
+import Contact from "./Components/Contact";
 
 const Homepage: React.FC = () => {
   return (
@@ -10,6 +11,7 @@ const Homepage: React.FC = () => {
       <HeroSection />
       <WhyInnovyasa />
       <VoiceOfSuccess />
+      <Contact />
     </main>
   );
 };
